@@ -53,3 +53,13 @@ export async function logout() {
     }
     redirect("/logout");
 }
+
+export async function checkLoggedIn() {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+        return { isLoggedIn: false };
+    }
+    return { isLoggedIn: true };
+}

@@ -11,7 +11,7 @@ export default async function PrivatePage() {
     redirect('/login')
   }
 
-  return (<><p>Hello {data.user.email}</p>
-    <button onClick={logout}>Logout</button></>
+  return (<div className="h-screen w-screen flex flex-col justify-center items-center"><p>Hello {data.user.email}</p>
+    <button onClick={logout}>Logout</button></div>
   )
 }
