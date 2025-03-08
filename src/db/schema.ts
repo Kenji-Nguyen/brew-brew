@@ -43,7 +43,9 @@ export const brew = pgTable(
   "brew",
   {
     id: serial("id").primaryKey(),
-    coffeeId: integer("coffee_id").references(() => coffee.id),
+    coffeeId: integer("coffee_id")
+      .references(() => coffee.id)
+      .notNull(),
     grinderId: integer("grinder_id").references(() => grinder.id),
     brewDate: date("brew_date").notNull(),
     brewMethod: text("brew_method").notNull(), // "filter", "espresso", "aeropress", "bialetti"

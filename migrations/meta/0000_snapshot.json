@@ -1,0 +1,582 @@
+{
+  "id": "d6bc0f8c-eb1e-402b-a7cf-eebe4b688442",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.brew": {
+      "name": "brew",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "coffee_id": {
+          "name": "coffee_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "grinder_id": {
+          "name": "grinder_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "brew_date": {
+          "name": "brew_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "brew_method": {
+          "name": "brew_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "grind_setting": {
+          "name": "grind_setting",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "coffee_amount": {
+          "name": "coffee_amount",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "water_temperature": {
+          "name": "water_temperature",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "brew_duration": {
+          "name": "brew_duration",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "filter_type": {
+          "name": "filter_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "brewer_type": {
+          "name": "brewer_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "water_in": {
+          "name": "water_in",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pre_infusion_time": {
+          "name": "pre_infusion_time",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "water_out": {
+          "name": "water_out",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "temperature_setting": {
+          "name": "temperature_setting",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "acidity": {
+          "name": "acidity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "body": {
+          "name": "body",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sweetness": {
+          "name": "sweetness",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aftertaste": {
+          "name": "aftertaste",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aroma": {
+          "name": "aroma",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "overall_rating": {
+          "name": "overall_rating",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_favorite": {
+          "name": "is_favorite",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "tasting_notes": {
+          "name": "tasting_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "brew_date_idx": {
+          "name": "brew_date_idx",
+          "columns": [
+            {
+              "expression": "brew_date",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brew_method_idx": {
+          "name": "brew_method_idx",
+          "columns": [
+            {
+              "expression": "brew_method",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brew_favorite_idx": {
+          "name": "brew_favorite_idx",
+          "columns": [
+            {
+              "expression": "is_favorite",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brew_coffee_id_idx": {
+          "name": "brew_coffee_id_idx",
+          "columns": [
+            {
+              "expression": "coffee_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "brew_grinder_id_idx": {
+          "name": "brew_grinder_id_idx",
+          "columns": [
+            {
+              "expression": "grinder_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "brew_coffee_id_coffee_id_fk": {
+          "name": "brew_coffee_id_coffee_id_fk",
+          "tableFrom": "brew",
+          "tableTo": "coffee",
+          "columnsFrom": [
+            "coffee_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "brew_grinder_id_grinder_id_fk": {
+          "name": "brew_grinder_id_grinder_id_fk",
+          "tableFrom": "brew",
+          "tableTo": "grinder",
+          "columnsFrom": [
+            "grinder_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.brew_to_tasting_tag": {
+      "name": "brew_to_tasting_tag",
+      "schema": "",
+      "columns": {
+        "brew_id": {
+          "name": "brew_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "brew_to_tasting_tag_brew_id_brew_id_fk": {
+          "name": "brew_to_tasting_tag_brew_id_brew_id_fk",
+          "tableFrom": "brew_to_tasting_tag",
+          "tableTo": "brew",
+          "columnsFrom": [
+            "brew_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "brew_to_tasting_tag_tag_id_tasting_tag_id_fk": {
+          "name": "brew_to_tasting_tag_tag_id_tasting_tag_id_fk",
+          "tableFrom": "brew_to_tasting_tag",
+          "tableTo": "tasting_tag",
+          "columnsFrom": [
+            "tag_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "brew_to_tasting_tag_brew_id_tag_id_pk": {
+          "name": "brew_to_tasting_tag_brew_id_tag_id_pk",
+          "columns": [
+            "brew_id",
+            "tag_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.coffee": {
+      "name": "coffee",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "brand_name": {
+          "name": "brand_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "photo_url": {
+          "name": "photo_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "farm_name": {
+          "name": "farm_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "country_of_origin": {
+          "name": "country_of_origin",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "region": {
+          "name": "region",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "producer": {
+          "name": "producer",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "variety": {
+          "name": "variety",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "processing_method": {
+          "name": "processing_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "custom_processing_method": {
+          "name": "custom_processing_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roast_level": {
+          "name": "roast_level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.grinder": {
+      "name": "grinder",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "brand": {
+          "name": "brand",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "model": {
+          "name": "model",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "supports_decimal_settings": {
+          "name": "supports_decimal_settings",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.tasting_tag": {
+      "name": "tasting_tag",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_predefined": {
+          "name": "is_predefined",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "tasting_tag_category_idx": {
+          "name": "tasting_tag_category_idx",
+          "columns": [
+            {
+              "expression": "category",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "tasting_tag_predefined_idx": {
+          "name": "tasting_tag_predefined_idx",
+          "columns": [
+            {
+              "expression": "is_predefined",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "tasting_tag_name_unique": {
+          "name": "tasting_tag_name_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "name"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
